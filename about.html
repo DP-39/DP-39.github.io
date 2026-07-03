@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="关于我 - DevLog个人技术博客，了解博主信息、联系方式和留言">
+  <title>关于我 - DevLog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏占位 -->
+  <header id="site-nav" class="site-nav"></header>
+
+  <main class="about-page">
+    <div class="container">
+      <div class="section-header reveal">
+        <h1 class="section-title">👤 关于我</h1>
+        <p class="section-subtitle">了解博主信息，欢迎留言交流</p>
+      </div>
+
+      <div class="about-grid">
+        <!-- 左侧：个人介绍 -->
+        <div>
+          <div class="about-intro reveal">
+            <p>
+              你好！我是<strong>DP</strong>，深圳大学计算机与软件学院的一名学生，
+              目前大三在读，主修计算机科学与技术方向。对<strong>Web前端开发</strong>充满热情，
+              专注于 HTML5、CSS3 和 JavaScript 技术栈。
+            </p>
+            <p>
+              在课程学习之外，我积极通过实际项目来巩固和拓展所学知识。
+              从最基础的静态页面开始，逐步深入到响应式布局、CSS动画、JavaScript异步编程等领域。
+              这个个人博客网站正是我本学期《基于Web的编程》课程的大作业成果，
+              同时也是我作为前端开发学习者的一份作品展示。
+            </p>
+            <p>
+              我相信"<strong>做中学</strong>"（Learning by Doing）是最有效的学习方式。
+              每一个项目的完成都不仅仅是代码的堆砌，更是对问题的思考、对用户体验的关注、
+              以及对代码质量的追求。目前我正在学习现代前端框架，并计划逐步向全栈开发方向拓展。
+            </p>
+            <p>
+              除了编程之外，我也喜欢阅读技术博客、参与开源社区、以及和志同道合的朋友交流技术心得。
+              如果你对我的项目感兴趣，或者有任何建议和想法，欢迎通过以下方式联系我，
+              或者在留言板留下你的足迹。
+            </p>
+          </div>
+
+          <!-- 联系方式 -->
+          <div class="reveal">
+            <h3 style="margin-bottom:12px;color:var(--text-primary);">📬 联系方式</h3>
+            <div class="contact-links">
+              <a href="https://github.com/DP050" target="_blank" rel="noopener noreferrer" class="contact-link">
+                🔗 GitHub
+              </a>
+              <a href="mailto:dp050@example.com" class="contact-link">
+                📧 邮箱
+              </a>
+            </div>
+          </div>
+
+          <!-- 技能标签 -->
+          <div class="reveal" style="margin-top:32px;">
+            <h3 style="margin-bottom:12px;color:var(--text-primary);">🛠 技术栈</h3>
+            <div class="card-tags" style="margin-top:0;">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">响应式设计</span>
+              <span class="tag">Canvas</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右侧：留言板 -->
+        <div class="reveal">
+          <div class="guestbook">
+            <h2 class="guestbook-title">💬 留言板</h2>
+
+            <form id="guestbook-form" novalidate>
+              <div class="form-group">
+                <label for="gb-nickname">昵称 *</label>
+                <input
+                  type="text"
+                  id="gb-nickname"
+                  placeholder="请输入你的昵称（最多20字）"
+                  maxlength="20"
+                  autocomplete="off"
+                >
+                <span class="error-msg"></span>
+              </div>
+              <div class="form-group">
+                <label for="gb-message">留言内容 *</label>
+                <textarea
+                  id="gb-message"
+                  placeholder="写下你想说的话...（最多500字）"
+                  maxlength="500"
+                ></textarea>
+                <span class="error-msg"></span>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">
+                ✉️ 提交留言
+              </button>
+            </form>
+
+            <div class="messages-list" id="messages-list">
+              <!-- 由JS动态渲染 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚占位 -->
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <!-- 脚本 -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/guestbook.js"></script>
+</body>
+</html>

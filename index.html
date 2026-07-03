@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DevLog - 个人技术博客，分享Web前端开发知识、项目经验和学习心得">
+  <meta name="author" content="DP050">
+  <title>DevLog - 个人技术博客</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏占位（由main.js动态注入） -->
+  <header id="site-nav" class="site-nav"></header>
+
+  <main>
+    <!-- ===== Hero区域 ===== -->
+    <section class="hero">
+      <div class="container hero-content">
+        <img
+          src="2023152026.png"
+          alt="头像"
+          class="hero-avatar fade-in-up"
+          width="120" height="120"
+          onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%231e293b%22 width=%22100%22 height=%22100%22 rx=%2250%22/><text x=%2250%22 y=%2262%22 text-anchor=%22middle%22 fill=%22%2306b6d4%22 font-size=%2240%22>D</text></svg>'"
+        >
+        <h1 class="hero-name fade-in-up">你好，我是 DP</h1>
+        <p class="hero-tagline fade-in-up">
+          <span id="typewriter"></span><span class="typewriter-cursor">|</span>
+        </p>
+        <p class="hero-bio fade-in-up">
+          深圳大学计算机与软件学院学生 · 热爱Web前端开发 · 专注于HTML5/CSS3/JavaScript
+        </p>
+        <div class="hero-cta fade-in-up">
+          <a href="blog.html" class="btn btn-primary">📝 阅读博客</a>
+          <a href="projects.html" class="btn btn-outline">💻 查看项目</a>
+          <a href="about.html" class="btn btn-outline">👤 关于我</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 最新文章 ===== -->
+    <section class="latest-posts">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">最新文章</h2>
+          <p class="section-subtitle">分享前端开发知识与实践经验</p>
+        </div>
+        <div class="latest-posts-grid" id="latest-posts-grid">
+          <!-- 由JS动态渲染前3篇 -->
+        </div>
+        <div style="text-align:center;margin-top:36px;" class="reveal">
+          <a href="blog.html" class="btn btn-outline">查看全部文章 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚占位 -->
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <!-- 脚本 -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // 渲染首页最新3篇文章
+    (function() {
+      document.addEventListener('DOMContentLoaded', function() {
+        const grid = document.getElementById('latest-posts-grid');
+        if (!grid) return;
+
+        const latestPosts = blogPosts.slice(0, 3);
+
+        latestPosts.forEach((post, i) => {
+          const card = document.createElement('article');
+          card.className = 'card reveal';
+          card.style.animationDelay = (i * 0.15) + 's';
+          card.innerHTML = `
+            <a href="article.html?slug=${encodeURIComponent(post.slug)}" class="card-link">
+              <div class="card-date">📅 ${formatDate(post.date)} · ${post.readTime} 分钟阅读</div>
+              <h3 class="card-title">${post.title}</h3>
+              <p class="card-summary">${post.summary}</p>
+              <div class="card-tags">
+                ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+              </div>
+            </a>
+          `;
+          grid.appendChild(card);
+        });
+
+        // 触发滚动动画
+        setTimeout(() => initScrollReveal(), 100);
+      });
+
+      function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日';
+      }
+
+      // 重新触发滚动动画
+      function initScrollReveal() {
+        const elements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        elements.forEach(el => observer.observe(el));
+      }
+    })();
+  </script>
+</body>
+</html>
