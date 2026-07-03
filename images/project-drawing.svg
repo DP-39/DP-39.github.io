@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" width="400" height="180">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1b4e"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="180" rx="12" fill="url(#bg4)"/>
+  <circle cx="120" cy="80" r="35" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.7"/>
+  <path d="M 180 40 Q 240 30 260 80" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.7"/>
+  <rect x="60" y="55" width="60" height="50" fill="none" stroke="#10b981" stroke-width="2" opacity="0.5" rx="4"/>
+  <text x="200" y="160" text-anchor="middle" fill="#a855f7" font-size="22" font-weight="700" font-family="Arial">🎨 Canvas绘图板</text>
+</svg>
